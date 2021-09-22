@@ -4,6 +4,7 @@
 defined('MOODLE_INTERNAL') || die();
 
     $observers = array(
+		//Users
 		array(
             'eventname' => '\core\event\user_created',
             'callback' => 'local_test_observer::user_created',
@@ -13,6 +14,16 @@ defined('MOODLE_INTERNAL') || die();
             'callback' => 'local_test_observer::user_deleted',
         ),
 		array(
+            'eventname' => '\core\event\user_password_updated',
+            'callback' => 'local_test_observer::user_password_updated',
+        ),
+		array(
+            'eventname' => 'core\event\user_updated',
+            'callback' => 'local_test_observer::user_updated',
+        ),
+		
+		//Chapters
+		array(
             'eventname' => '\mod_book\event\chapter_created',
             'callback' => 'local_test_observer::chapter_created',
         ),
@@ -21,11 +32,37 @@ defined('MOODLE_INTERNAL') || die();
             'callback' => 'local_test_observer::chapter_deleted',
         ),
 		array(
+            'eventname' => '\mod_book\event\chapter_updated',
+            'callback' => 'local_test_observer::chapter_updated',
+        ),
+		
+		//Course
+		array(
             'eventname' => '\core\event\course_created',
             'callback' => 'local_test_observer::course_created',
         ),
 		array(
             'eventname' => '\core\event\course_deleted',
             'callback' => 'local_test_observer::course_deleted',
+        ),
+		array(
+            'eventname' => '\core\event\course_module_created',
+            'callback' => 'local_test_observer::course_module_created',
+        ),
+		array(
+            'eventname' => '\core\event\course_module_deleted',
+            'callback' => 'local_test_observer::course_module_deleted',
+        ),
+		array(
+            'eventname' => '\core\event\course_module_updated',
+            'callback' => 'local_test_observer::course_module_updated',
+        ),
+		array(
+            'eventname' => '\core\event\course_restored',
+            'callback' => 'local_test_observer::course_restored',
+        ),
+		array(
+            'eventname' => '\core\event\course_updated',
+            'callback' => 'local_test_observer::course_updated',
         ),
     );
